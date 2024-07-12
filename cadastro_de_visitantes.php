@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>Sistema de Portaria, cadastro de moradores</h1>
+        <h1>Sistema de Portaria, cadastro de visitantes</h1>
     </header>
     <main>
         <div class="container-form">
-            <form action="inserir_dados_morador.php" method="post">
+            <form action="inserir_dados_visita.php" method="post">
                 <label class="label-form" for="">Nome: 
                     <input type="text" name="nome" required>
                 </label>

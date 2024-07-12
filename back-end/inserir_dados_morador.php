@@ -9,11 +9,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO moradores (nome, rg, apartamento) VALUES ('$nome', '$rg', '$apartamento')";
        
     if ($conn->query($sql) === TRUE) {
-        echo "Dados inseridos com sucesso!";
+        header("Location: ../front-end/confirmacao_de_cadastro_morador.html");
+        exit();
+        //$mensagem = "Dados inseridos com sucesso!";
     } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
+        $mensagem = "Erro: " . $sql . "<br>" . $conn->error;
     }
 }
 
 // Fechando a conexão
 $conn->close();
+?>
+
+

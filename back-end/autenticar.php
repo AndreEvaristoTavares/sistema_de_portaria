@@ -11,11 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_num_rows($resultado) > 0) {
         // Se o usuário existir, redireciona para a página de portaria
-        header("Location: ./front-end/home.html");
+        header("Location: ../front-end/home.html");
         exit();
     } else {
         echo "Usuário ou senha inválidos!";
     }
 }
 $conn->close();
-?>

@@ -9,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO visitantes (nome, rg, apartamento) VALUES ('$nome', '$rg', '$apartamento')";
        
     if ($conn->query($sql) === TRUE) {
-        echo "Dados inseridos com sucesso!";
+        header("Location: ../front-end/confirmacao_de_cadastro_visita.html");
+        exit();
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
     }

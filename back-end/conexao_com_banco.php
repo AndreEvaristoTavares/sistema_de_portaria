@@ -12,6 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificando a conexão
 if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
+    header("Location: ../front-end/erro_na_operacao.html");
+    exit();
 }
 ?>

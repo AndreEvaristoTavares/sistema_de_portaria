@@ -85,4 +85,15 @@ main{
 }
 .container-aviso h1{
     color: green;
+    margin-top: 200px;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+}
+.container-aviso .erro{
+    color: red;
+}
+.erro_login{
+    color: brown;
 }

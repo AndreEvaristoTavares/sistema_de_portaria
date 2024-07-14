@@ -11,13 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         header("Location: ../front-end/confirmacao_de_cadastro_morador.html");
         exit();
-        //$mensagem = "Dados inseridos com sucesso!";
     } else {
-        $mensagem = "Erro: " . $sql . "<br>" . $conn->error;
+        header("Location: ../front-end/erro_na_operacao.html");
+        exit();
     }
 }
-
-// Fechando a conexão
 $conn->close();
 ?>
 

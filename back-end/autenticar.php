@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../front-end/home.html");
         exit();
     } else {
-        echo "Usuário ou senha inválidos!";
+        header("Location: ../front-end/login_invalido.html");
+        exit();
     }
 }
 $conn->close();

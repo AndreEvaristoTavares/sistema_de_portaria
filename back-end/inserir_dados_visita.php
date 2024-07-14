@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../front-end/confirmacao_de_cadastro_visita.html");
         exit();
     } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
+        header("Location: ../front-end/erro_na_operacao.html");
+        exit();
     }
 }
 

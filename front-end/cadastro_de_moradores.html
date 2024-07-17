@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
     <title>Sistema de portaria</title>
 </head>
 <body>
-    <header>
-        <h1>Sistema de Portaria, cadastro de moradores</h1>
-        <a href="./home.html">Voltar para tela inicial</a>
+    <header class="d-flex justify-content-between align-items-center bg-secondary p-3">
+        <h1 class="text-white">Sistema de Portaria, cadastro de moradores</h1>
+        <a class="btn btn-dark" href="./home.html">Voltar para tela inicial</a>
     </header>
-    <main>
-        <div class="container-form">
-            <form action="../back-end/inserir_dados_morador.php" method="post">
-                <label class="label-form" for="">Nome: 
-                    <input type="text" name="nome" required>
+    <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
+        <div>
+            <form class="d-flex flex-column justify-content-center align-items-center" action="../back-end/inserir_dados_morador.php" method="post">
+                <label class="m-2 d-flex flex-column align-items-center" for="">Nome
+                    <input class="form-control" type="text" name="nome" required>
                 </label>
-                <label class="label-form" for="">RG:
-                    <input type="text" name="rg" required>
-                </label>
-                <label for="apartamento">Apartamento:
-                <select name="apartamento" required>
-                    <option value="" disabled selected>Selecione o apartamento</option>
+                <label class="m-2 d-flex flex-column align-items-center" for="">RG
+                    <input class="form-control" type="text" name="rg" required>
+               </label>
+                <label class="m-2 d-flex flex-column align-items-center" for="apartamento">Apartamento
+                <select class="form-control" name="apartamento" required>
+                    <option value="" disabled selected>Selecione apartamento</option>
                     <option value="101">101</option>
                     <option value="102">102</option>
                     <option value="201">201</option>
                     <option value="202">202</option>
                 </select>
-        </label>
-                <input type="submit" class="button-enviar" value="enviar"/>
+                </label>
+                <input  type="submit" class="btn btn-dark mt-2" value="enviar"/>
             </form>
         </div>
     </main>

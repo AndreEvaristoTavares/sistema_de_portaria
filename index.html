@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./front-end/style.css">
+    <link rel="stylesheet" href="./bootstrap4/css/bootstrap.min.css">
     <title>Sistema de portaria</title>
 </head>
 <body>
-    <header>
-        <h1>Login</h1>
+    <header class="bg-secondary p-3">
+        <h1 class="text-white">Login</h1>
     </header>
-    <main>
-        <div class="container-form">
-            <form action="./back-end/autenticar.php" method="post">
-                <label for="usuario">Usuário: 
-                    <input type="text" name="usuario" required>
+    <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
+        <div class="d-flex container mx-auto justify-content-center align-items-center">
+            <form class="d-flex flex-column justify-content-center align-items-center" action="./back-end/autenticar.php" method="post">
+                <label class="m-2 align-items-center" for="usuario">Usuário:
+                  <input type="text" class="form-control" id="usuario" name="usuario" required>
                 </label>
-                <label for="senha">Senha:
-                    <input type="password" name="senha" required>
+                <label class="m-2 align-items-center"  for="senha">Senha:
+                  <input type="password" class="form-control" id="senha" name="senha" required>
                 </label>
-                <input type="submit" class="button-enviar" value="Entrar"/>
+                <button class="m-2 btn btn-dark"  type="submit">Login</button>
             </form>
-        </div>
+          </div>
     </main>
 </body>
 </html>

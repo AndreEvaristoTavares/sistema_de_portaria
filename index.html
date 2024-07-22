@@ -11,17 +11,18 @@
         <h1 class="text-white">Login</h1>
     </header>
     <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
-        <div class="d-flex container mx-auto justify-content-center align-items-center">
-            <form class="d-flex flex-column justify-content-center align-items-center" action="./back-end/autenticar.php" method="post">
-                <label class="m-2 align-items-center" for="usuario">Usuário:
-                  <input type="text" class="form-control" id="usuario" name="usuario" required>
-                </label>
-                <label class="m-2 align-items-center"  for="senha">Senha:
-                  <input type="password" class="form-control" id="senha" name="senha" required>
-                </label>
-                <button class="m-2 btn btn-dark"  type="submit">Login</button>
-            </form>
-          </div>
+      <form style="width: 90%; max-width: 512px;" action="./back-end/autenticar.php" method="post">
+        <div class="form-group">
+          <label class="m-2 align-items-center" for="usuario">Login:</label>
+            <input type="text" class="form-control" id="usuario" name="login" required>
+        </div>
+        <div class="form-group">
+          <label class="m-2 align-items-center" for="usuario">Login:</label>
+            <input type="text" class="form-control" id="usuario" name="senha" required>
+        </div>
+        <button class="btn btn-dark"  type="submit">Login</button>
+      </form>
+        
     </main>
 </body>
 </html>

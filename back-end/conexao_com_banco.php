@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "cadastro_de_pessoas";
+$dbname = "portaria";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificando a conexão

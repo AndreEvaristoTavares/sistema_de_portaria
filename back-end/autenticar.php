@@ -2,11 +2,11 @@
 include 'conexao_com_banco.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['usuario'];
+    $usuario = $_POST['login'];
     $senha = $_POST['senha'];
 
     // Verificar as credenciais
-    $query = "SELECT * FROM usuario_admin WHERE usuario = '$usuario' AND senha = '$senha'";
+    $query = "SELECT * FROM usuarios WHERE login = '$usuario' AND senha = '$senha'";
     $resultado = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($resultado) > 0) {

@@ -7,13 +7,13 @@
     <title>Sistema de portaria</title>
 </head>
 <body>
-    <header class="d-flex justify-content-between align-items-center bg-secondary p-3">
-        <h1 class="text-white">Sistema de Portaria, cadastro de moradores</h1>
+    <header class="d-flex justify-content-between align-items-center bg-secondary p-3 flex-wrap">
+        <h1 class="text-white text-sm">Sistema de Portaria, cadastro de moradores</h1>
         <a class="btn btn-dark" href="./home.html">Voltar para tela inicial</a>
     </header>
     <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
         
-            <form style="width: 90%; max-width: 512px;" action="../back-end/inserir_dados_morador.php" method="post">
+            <form style="width: 90%; max-width: 512px;" action="../back-end/cadastro.php" method="post">
                 <div class="form-group">
                     <label class="" for="">Nome</label>
                     <input class="form-control" type="text" name="nome" required>
@@ -31,6 +31,14 @@
                     <option value="201">201</option>
                     <option value="202">202</option>
                 </select>
+                </div>
+                <div class="form-group">
+                    <label for="tipoCadastro">Tipo de Cadastro</label>
+                    <select class="form-control" name="tipoCadastro" required>
+                        <option value="" disabled selected>Selecione o tipo de cadastro</option>
+                        <option value="morador">Morador</option>
+                        <option value="visitante">Visitante</option>
+                    </select>
                 </div>
                 
                 <input  type="submit" class="btn btn-dark mt-2" value="enviar"/>

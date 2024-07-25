@@ -13,31 +13,10 @@
     <main>
         <div class="mt-5 d-flex justify-content-between container mx-auto justify-content-center align-items-center">
             <a class="btn btn-dark" href="./cadastro_de_moradores.html">Cadastro de moradores</a>
-            <a class="btn btn-dark" href="../back-end/visualizar_dados_morador.php">Lista de moradores</a>
+            <a class="btn btn-dark" href="./visualizar_moradores.html">Lista de moradores</a>
             <a class="btn btn-dark" href="./cadastro_de_visitantes.html">Cadastro de visitas</a>
-            <a class="btn btn-dark" href="">Lista de visitantes</a>
+            <a class="btn btn-dark" href="./visualizar_visitantes.html">Lista de visitantes</a>
         </div>
-        <div style="width: 100%;"  class="d-flex justify-content-center align-items-center mt-5"  id="output"></div>
-
-    <script>
-        fetch('../back-end/visualizar_dados_morador.php')
-            .then(response => response.json())
-            .then(data => {
-                let output = '<table style="width: 90%; max-width:720px" border="1">';
-                output += '<tr><th>Nome</th><th>Documento</th><th>Apartamento</th></tr>';
-                data.forEach(morador => {
-                    output += `
-                        <tr>
-                            <td>${morador.nome}</td>
-                            <td>${morador.documento}</td>
-                            <td>${morador.apartamento}</td>
-                        </tr>`;
-                });
-                output += '</ul>';
-                document.getElementById('output').innerHTML = output;
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
     </main>
 </body>
 </html>

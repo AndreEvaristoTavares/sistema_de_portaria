@@ -1,7 +1,7 @@
 <?php
 include 'conexao_com_banco.php';
 $data = array();
-$sql = "SELECT nome, documento, apartamento  FROM moradores ORDER BY apartamento";
+$sql = "SELECT nome, documento, apartamento  FROM visitantes ORDER BY apartamento";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

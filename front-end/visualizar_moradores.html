@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
+    <title>Visualizar moradores</title>
+</head>
+<body>
+    <header class="d-flex justify-content-between align-items-center bg-secondary p-3">
+        <h1 class="text-white">Sistema de Portaria, visualizar moradores</h1>
+        <a class="btn btn-dark" href="./home.html">Voltar para tela inicial</a>
+    </header>
+    <div style="width: 100%;"  class="d-flex justify-content-center align-items-center mt-5"  id="output"></div>
+
+    <script>
+        fetch('../back-end/visualizar_dados_morador.php')
+            .then(response => response.json())
+            .then(data => {
+                let output = '<table style="width: 90%; max-width:720px" border="1">';
+                output += '<tr><th>Nome</th><th>Documento</th><th>Apartamento</th></tr>';
+                data.forEach(morador => {
+                    output += `
+                        <tr>
+                            <td>${morador.nome}</td>
+                            <td>${morador.documento}</td>
+                            <td>${morador.apartamento}</td>
+                        </tr>`;
+                });
+                output += '</ul>';
+                document.getElementById('output').innerHTML = output;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>

@@ -14,7 +14,5 @@ if ($result->num_rows > 0) {
 }
 
 $json_data = json_encode($data);
-
-// Exibe o JSON
 echo $json_data;
 $conn->close();

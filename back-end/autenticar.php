@@ -1,20 +1,25 @@
 <?php
 include 'conexao_com_banco.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['login'];
+    $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
 
     // Verificar as credenciais
-    $query = "SELECT * FROM usuarios WHERE login = '$usuario' AND senha = '$senha'";
-    $resultado = mysqli_query($conn, $query);
+    $query = $conn->prepare("SELECT * FROM usuarios WHERE login = ? AND senha = ?");
+    $query->bind_param("ss", $usuario, $senha);
+    $query->execute();
+    $resultado = $query->get_result();
 
-    if (mysqli_num_rows($resultado) > 0) {
+    if ($resultado->num_rows > 0) {
         // Se o usuário existir, redireciona para a página de portaria
-        header("Location: ../front-end/home.html");
+        $_SESSION['login_erro'] = '';
+        header("Location: ../views/home.html");
         exit();
     } else {
-        header("Location: ../front-end/login_invalido.html");
+        $_SESSION['login_erro'] = 'Usuário ou senha inválidos';
+        header("Location: ../index.php");
         exit();
     }
 }

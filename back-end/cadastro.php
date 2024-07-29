@@ -1,25 +1,27 @@
 <?php
 include 'conexao_com_banco.php';
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $conn->real_escape_string($_POST['nome']);
-    $documento = $conn->real_escape_string($_POST['documento']);
+    $nome = trim($conn->real_escape_string($_POST['nome']));
+    $documento = trim($conn->real_escape_string($_POST['documento']));
     $apartamento = (int) $_POST['apartamento'];
-    $tipoCadastro = $_POST['tipoCadastro'];
+    $tipoCadastro = trim($_POST['tipoCadastro']);
 
-    if ($tipoCadastro == 'morador') {
-        $tabela = "moradores";
-    } else {
-        $tabela = "visitantes";
-    }
+    $tabela = ($tipoCadastro == 'morador') ? "moradores" : "visitantes";
+    $cadastro_sucesso = false;
     
     // SQL para inserir os dados
-    $sql = "INSERT INTO $tabela (nome, documento, apartamento) VALUES ('$nome', '$documento', '$apartamento')";
+    $query = $conn->prepare("INSERT INTO $tabela (nome, documento, apartamento) VALUES (?, ?, ?)");
+    $query->bind_param("ssi", $nome, $documento, $apartamento);
        
-    if ($conn->query($sql) === TRUE) {
-        header("Location: ../front-end/confirmacao_de_cadastro.html");
+    if ($query->execute()) {
+        $cadastro_sucesso = true;
+        $_SESSION['cadastro_sucesso'] = 'Cadastro realizado com sucesso!';
+        header("Location: ../views/cadastro.php");
         exit();
     } else {
-        header("Location: ../front-end/erro_na_operacao.html");
+        $_SESSION['cadastro_sucesso'] = 'erro no cadastro...';
+        header("Location: ../views/cadastro.php");
         exit();
     }
 }

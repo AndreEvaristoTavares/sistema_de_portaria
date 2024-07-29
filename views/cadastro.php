@@ -13,7 +13,7 @@
     </header>
     <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
         
-            <form style="width: 90%; max-width: 512px;" action="../back-end/cadastro.php" method="post">
+            <form style="width: 90%; max-width: 512px; height:600px" action="../back-end/cadastro.php" method="post">
                 <div class="form-group">
                     <label class="" for="">Nome</label>
                     <input class="form-control" type="text" name="nome" required>
@@ -42,6 +42,17 @@
                 </div>
                 
                 <input  type="submit" class="btn btn-dark mt-2" value="enviar"/>
+                <?php
+                session_start();
+                if (isset($_SESSION['cadastro_sucesso']) && !empty($_SESSION['cadastro_sucesso'])) {
+                    echo '<div class="alert alert-success" m-2 role="alert">' . $_SESSION['cadastro_sucesso'] . '</div>';
+                    $_SESSION['cadastro_sucesso'] = ''; // Limpe a mensagem após exibi-la
+                }
+                if (isset($_SESSION['login_erro']) && !empty($_SESSION['login_erro'])) {
+                    echo '<div class="alert alert-danger m-2" role="alert">' . $_SESSION['login_erro'] . '</div>';
+                    $_SESSION['login_erro'] = ''; // Limpe a mensagem de erro após exibi-la
+                }
+                ?>
             </form>
     </main>
 </body>

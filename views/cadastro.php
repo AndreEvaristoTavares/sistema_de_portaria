@@ -1,3 +1,12 @@
+<?php
+include '../back-end/conexao_com_banco.php';
+session_start();
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header("Location: ../index.php");
+    exit;
+}
+//$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,23 +20,20 @@
         <h1 class="text-white text-sm">Sistema de Portaria, cadastro de moradores</h1>
         <a class="btn btn-dark" href="./home.php">Voltar para tela inicial</a>
     </header>
-    <main class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
-            <form class="mt-5" style="width: 90%; max-width: 512px;" action="../back-end/cadastro.php" method="post">
-            <?php
-                session_start();
-                if (isset($_SESSION['cadastro_sucesso']) && !empty($_SESSION['cadastro_sucesso'])) {
-                    echo '<div style="position:fixed; top:100px; width:512px" class="alert alert-success" role="alert">' . $_SESSION['cadastro_sucesso'] . '</div>';
-                    $_SESSION['cadastro_sucesso'] = ''; // Limpe a mensagem após exibi-la
-                }
-                if (isset($_SESSION['login_erro']) && !empty($_SESSION['login_erro'])) {
-                    echo '<div style="position:fixed; top:100px; width:512px" class="alert alert-danger role="alert"">' . $_SESSION['login_erro'] . '</div>';
-                    $_SESSION['login_erro'] = ''; // Limpe a mensagem de erro após exibi-la
-                }
-                if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-                    header("Location: index.php");
-                    exit;
-                }
-                ?>
+    <main class="d-flex flex-column justify-content-center align-items-center">
+            <div class="mt-5" style="height:70px">
+                <?php
+                    if (isset($_SESSION['cadastro_sucesso']) && !empty($_SESSION['cadastro_sucesso'])) {
+                        echo '<div style="width:512px" class="alert alert-success" role="alert">' . $_SESSION['cadastro_sucesso'] . '</div>';
+                        $_SESSION['cadastro_sucesso'] = ''; // Limpe a mensagem após exibi-la
+                    }
+                    if (isset($_SESSION['login_erro']) && !empty($_SESSION['login_erro'])) {
+                        echo '<div style="position:fixed; top:100px; width:512px" class="alert alert-danger role="alert"">' . $_SESSION['login_erro'] . '</div>';
+                        $_SESSION['login_erro'] = ''; // Limpe a mensagem de erro após exibi-la
+                    }
+                    ?>
+            </div>
+            <form class="mt-10" style="width: 90%; max-width: 512px;" action="../back-end/cadastro.php" method="post">
                 
                 <div class="form-group">
                     <label class="" for="">Nome</label>
@@ -45,6 +51,11 @@
                     <option value="102">102</option>
                     <option value="201">201</option>
                     <option value="202">202</option>
+                    <option value="101">301</option>
+                    <option value="102">402</option>
+                    <option value="201">501</option>
+                    <option value="202">602</option>
+                    <option value="202">702</option>
                 </select>
                 </div>
                 <div class="form-group">
@@ -54,7 +65,7 @@
                         <option value="morador">Morador</option>
                         <option value="visitante">Visitante</option>
                     </select>                
-                <input  type="submit" class="btn btn-dark mt-2" value="enviar"/>
+                <input  type="submit" class="btn btn-dark mt-4" value="enviar"/>
             </form>
         </div>
     </main>

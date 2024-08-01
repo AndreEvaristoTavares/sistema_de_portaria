@@ -12,6 +12,12 @@ if ($result->num_rows > 0) {
 } else {
     $data[] = array("nome" => "Nenhum resultado encontrado", "documento" => "", "apartamento" => "");
 }
+session_start();
+
+    if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+        header("Location: ../index.php");
+        exit;
+    }
 
 $conn->close();
 ?>

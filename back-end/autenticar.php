@@ -14,8 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($resultado->num_rows > 0) {
         // Se o usuário existir, redireciona para a página de portaria
+        $_SESSION['logado'] = true;
         $_SESSION['login_erro'] = '';
-        header("Location: ../views/home.html");
+        header("Location: ../views/home.php");
         exit();
     } else {
         $_SESSION['login_erro'] = 'Usuário ou senha inválidos';

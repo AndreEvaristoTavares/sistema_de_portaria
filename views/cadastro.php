@@ -5,7 +5,6 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     header("Location: ../index.php");
     exit;
 }
-//$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,11 +24,11 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                 <?php
                     if (isset($_SESSION['cadastro_sucesso']) && !empty($_SESSION['cadastro_sucesso'])) {
                         echo '<div style="width:512px" class="alert alert-success" role="alert">' . $_SESSION['cadastro_sucesso'] . '</div>';
-                        $_SESSION['cadastro_sucesso'] = ''; // Limpe a mensagem após exibi-la
+                        $_SESSION['cadastro_sucesso'] = ''; 
                     }
                     if (isset($_SESSION['login_erro']) && !empty($_SESSION['login_erro'])) {
                         echo '<div style="position:fixed; top:100px; width:512px" class="alert alert-danger role="alert"">' . $_SESSION['login_erro'] . '</div>';
-                        $_SESSION['login_erro'] = ''; // Limpe a mensagem de erro após exibi-la
+                        $_SESSION['login_erro'] = '';
                     }
                     ?>
             </div>

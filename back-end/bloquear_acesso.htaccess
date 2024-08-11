@@ -1,0 +1,4 @@
+# Bloquear o acesso a todos os arquivos .php na pasta
+<Files *.php>
+    Deny from all
+</Files>

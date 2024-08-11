@@ -49,6 +49,12 @@ $conn->close();
                         <td><?php echo htmlspecialchars($visita['nome']); ?></td>
                         <td><?php echo htmlspecialchars($visita['documento']); ?></td>
                         <td><?php echo htmlspecialchars($visita['apartamento']); ?></td>
+                        <td>
+                        <form method='POST' action='../back-end/deletar.php'>
+                        <input type="hidden" name='id' value="<?php $row['id']?>"/>
+                            <button type='submit' class='btn btn-danger btn-sm'>Deletar</button>
+                        </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

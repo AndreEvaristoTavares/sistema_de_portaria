@@ -1,5 +1,5 @@
 <?php
-include 'conexao_com_banco.php';
+include '../../config/conexao_com_banco.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'];
 
     // Verificar as credenciais
-    $query = $conn->prepare("SELECT * FROM usuarios WHERE login = ? AND senha = ?");
+    $query = $conn->prepare("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
     $query->bind_param("ss", $usuario, $senha);
     $query->execute();
     $resultado = $query->get_result();

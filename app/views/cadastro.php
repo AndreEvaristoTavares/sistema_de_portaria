@@ -1,5 +1,5 @@
 <?php
-include '../back-end/conexao_com_banco.php';
+include '../../config/conexao_com_banco.php';
 session_start();
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     header("Location: ../index.php");
@@ -32,7 +32,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                     }
                     ?>
             </div>
-            <form class="mt-10" style="width: 90%; max-width: 512px;" action="../back-end/cadastro.php" method="post">
+            <form class="mt-10" style="width: 90%; max-width: 512px;" action="../../public/cadastro.php" method="post">
                 
                 <div class="form-group">
                     <label class="" for="">Nome</label>
@@ -53,8 +53,6 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                     <option value="101">301</option>
                     <option value="102">402</option>
                     <option value="201">501</option>
-                    <option value="202">602</option>
-                    <option value="202">702</option>
                 </select>
                 </div>
                 <div class="form-group">

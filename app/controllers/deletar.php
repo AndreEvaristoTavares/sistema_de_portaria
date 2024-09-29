@@ -1,5 +1,5 @@
 <?php
-include 'conexao_com_banco.php';
+include '../../config/conexao_com_banco.php';
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

@@ -1,5 +1,5 @@
 <?php
-include 'conexao_com_banco.php';
+include '../config/conexao_com_banco.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($conn->real_escape_string($_POST['nome']));
@@ -17,11 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($query->execute()) {
         $cadastro_sucesso = true;
         $_SESSION['cadastro_sucesso'] = 'Cadastro realizado com sucesso!';
-        header("Location: ../views/cadastro.php");
+        header("Location: ../app/views/cadastro.php");
         exit();
     } else {
         $_SESSION['cadastro_sucesso'] = 'erro no cadastro...';
-        header("Location: ../views/cadastro.php");
+        header("Location: ../app/views/cadastro.php");
         exit();
     }
 }

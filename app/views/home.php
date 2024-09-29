@@ -2,7 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-        header("Location: ../index.php");
+        header("Location: ../../public/index.php");
         exit;
     }
   ?>
@@ -19,7 +19,7 @@
         <h1 class="text-white">Sistema de Portaria</h1>
         <ul class="navbar-nav" >
             <li class="nav-item" >
-              <a href="../back-end/logoff.php" class="btn btn-dark" > Sair </a>
+              <a href="../controllers/logoff.php" class="btn btn-dark"> Sair </a>
             </li>
         </ul>
     </header>

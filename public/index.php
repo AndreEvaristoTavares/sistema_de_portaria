@@ -21,7 +21,7 @@
           }
           ?>
       </div>
-      <form style="width: 90%; max-width: 368px;" action="./back-end/autenticar.php" method="post">
+      <form style="width: 90%; max-width: 368px;" action="../app/controllers/autenticar.php" method="post">
         <div class="form-group">
           <label class="m-2 align-items-center" for="usuario">Login:</label>
             <input type="text" class="form-control" id="usuario" name="usuario" required>

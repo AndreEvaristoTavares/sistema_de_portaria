@@ -1,5 +1,5 @@
 <?php
-include '../back-end/conexao_com_banco.php';
+include '../../config/conexao_com_banco.php';
 $data = array();
 $sql = "SELECT nome, documento, apartamento  FROM visitantes ORDER BY apartamento";
 $result = $conn->query($sql);
